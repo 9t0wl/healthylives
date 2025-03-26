@@ -17,7 +17,7 @@ function Navbar() {
           <a href="#">Health Blog</a>
         </li>
         <li>
-          <a href="#">Reviews</a>
+          <Link to="/reviews">Reviews</Link> {/* Add Reviews link */}
         </li>
       </ul>
       <div className="nav-buttons">
