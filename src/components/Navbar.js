@@ -11,7 +11,7 @@ function Navbar() {
           <Link to="/">Home</Link> {/* Add Home link */}
         </li>
         <li>
-          <a href="#">Appointments</a>
+          <Link to="/appointments">Appointments</Link>
         </li>
         <li>
           <a href="#">Health Blog</a>

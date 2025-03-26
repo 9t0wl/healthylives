@@ -1,0 +1,20 @@
+/* src/components/Appointment.css */
+.appointment-booking {
+  padding: 20px;
+}
+
+.search-doctor {
+  margin-bottom: 20px;
+}
+
+.doctor-cards {
+  display: flex;
+  justify-content: space-around;
+}
+
+.doctor-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  width: 300px;
+  text-align: center;
+}
