@@ -2,6 +2,7 @@
 import React from "react";
 import SearchDoctor from "./SearchDoctor";
 import DoctorCard from "./DoctorCard";
+import SimpleInstantConsultation from "./SimpleInstantConsultation";
 import "./Appointment.css";
 
 function AppointmentBooking() {
@@ -28,6 +29,7 @@ function AppointmentBooking() {
           rating="****"
         />
       </div>
+      <SimpleInstantConsultation />
     </div>
   );
 }

@@ -1,0 +1,12 @@
+/* src/components/SimpleInstantConsultation.css */
+.simple-consultation-container {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+}
+
+.appointment-details {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
