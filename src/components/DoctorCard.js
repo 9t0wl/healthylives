@@ -2,14 +2,14 @@
 import React from "react";
 import "./Appointment.css";
 
-function DoctorCard({ name, specialty, experience, rating }) {
+function DoctorCard({ name, specialty, experience, rating, onBook }) {
   return (
     <div className="doctor-card">
       <h3>{name}</h3>
       <p>{specialty}</p>
       <p>{experience} years experience</p>
       <p>Rating: {rating}</p>
-      <button>Book Appointment</button>
+      <button onClick={onBook}>Book Appointment</button> {/* Added onClick */}
       <p>No Booking Fee</p>
     </div>
   );

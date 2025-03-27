@@ -1,0 +1,62 @@
+/* src/components/InstantBooking.css */
+.instant-booking-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  max-width: 400px;
+  background-color: #f9f9f9;
+}
+
+.doctor-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.doctor-info p {
+  margin-bottom: 5px;
+}
+
+.instant-booking-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.instant-booking-card input {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.instant-booking-card button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.instant-booking-card button:hover {
+  background-color: #0056b3;
+}
+
+.booking-confirmation {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.booking-confirmation h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.booking-confirmation p {
+  margin-bottom: 8px;
+}
