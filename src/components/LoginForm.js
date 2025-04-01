@@ -1,18 +1,50 @@
-// src/components/LoginForm.js
-import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./LoginForm.css";
+import { AuthContext } from "../AuthContext";
+
+const API_URL = "http://localhost:8181";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false); // State for password visibility
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const { handleLogin } = useContext(AuthContext);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Add your login logic here
-    console.log("Email:", email);
-    console.log("Password:", password);
+    setError("");
+    setLoading(true);
+
+    try {
+      const response = await fetch(`${API_URL}/api/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const json = await response.json();
+
+      if (json.authtoken) {
+        sessionStorage.setItem("auth-token", json.authtoken);
+        sessionStorage.setItem("name", json.name);
+        sessionStorage.setItem("role", json.role);
+        setLoading(false);
+        navigate("/");
+        handleLogin();
+      } else {
+        setError(json.error || "Login failed");
+        setLoading(false);
+      }
+    } catch (error) {
+      setError("An error occurred during login");
+      setLoading(false);
+    }
   };
 
   const togglePasswordVisibility = () => {
@@ -54,9 +86,10 @@ function LoginForm() {
             </span>
           </div>
         </div>
+        {error && <p className="error-message">{error}</p>}
         <div className="button-group">
-          <button type="submit" className="login-button">
-            Login
+          <button type="submit" className="login-button" disabled={loading}>
+            {loading ? "Logging in..." : "Login"}
           </button>
           <button type="reset" className="reset-button">
             Reset

@@ -1,25 +1,47 @@
-// src/components/SignUpForm.js
 import React, { useState } from "react";
-import "./SignUpForm.css"; // Verify this import
+import { useNavigate } from "react-router-dom";
+import "./SignUpForm.css";
+
+const API_URL = "http://localhost:8181"; // Replace with your backend URL
 
 function SignUpForm() {
   const [role, setRole] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [successMessage, setSuccessMessage] = useState(""); // Added success message state
+  const [error, setError] = useState(""); // State for error messages
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here (replace console.log)
-    console.log("Form submitted:", { role, name, email, password });
-    setSuccessMessage("Sign up successful!"); // Set success message
+    setError(""); // Clear previous errors
 
-    // Clear form fields
-    setRole("");
-    setName("");
-    setEmail("");
-    setPassword("");
+    try {
+      const response = await fetch(`${API_URL}/api/auth/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ role, name, email, password }),
+      });
+
+      const json = await response.json();
+
+      if (json.authtoken) {
+        // Successful signup
+        sessionStorage.setItem("auth-token", json.authtoken);
+        sessionStorage.setItem("name", name);
+        sessionStorage.setItem("email", email);
+        sessionStorage.setItem("role", role);
+        navigate("/"); // Redirect to home page
+        window.location.reload();
+      } else {
+        // Signup failed
+        setError(json.error || "Signup failed");
+      }
+    } catch (error) {
+      setError("An error occurred during signup");
+    }
   };
 
   return (
@@ -68,8 +90,8 @@ function SignUpForm() {
         </div>
         <button type="submit">Sign Up</button>
       </form>
-      {successMessage && <p className="success-message">{successMessage}</p>}{" "}
-      {/* Display success message */}
+      {error && <p className="error-message">{error}</p>}{" "}
+      {/* Display error message */}
     </div>
   );
 }
