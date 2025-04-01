@@ -40,7 +40,7 @@ function App() {
                 path="/appointments"
                 element={
                   <AppointmentBooking
-                    onBookAppointment={handleBookAppointment} // Pass the function
+                    onBookAppointment={handleBookAppointment}
                   />
                 }
               />
