@@ -16,7 +16,9 @@ function AppointmentBooking() {
   return (
     <div className="appointment-booking">
       <SearchDoctor />
-      <div className="doctor-cards">
+      <div className="doctor-cards-container">
+        {" "}
+        {/* Add the container here */}
         <DoctorCard
           name="Dr. Jiao Yang"
           specialty="Dentist"

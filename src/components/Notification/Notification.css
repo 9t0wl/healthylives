@@ -1,0 +1,44 @@
+.notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease-in-out; /* Add animation */
+}
+
+.notification-card {
+  background-color: lightgreen; /* Change background color */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 2px solid green; /* Add border */
+}
+
+.notification-title {
+  font-size: 1.4em; /* Increase font size */
+  margin-bottom: 10px;
+  color: darkgreen;
+}
+
+.notification-message {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.cancel-button {
+  background-color: red;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
