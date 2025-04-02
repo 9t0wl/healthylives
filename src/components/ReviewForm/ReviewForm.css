@@ -1,0 +1,58 @@
+/* src/components/ReviewForm/ReviewForm.css */
+.review-form {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px; /* Add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.review-form h2 {
+  margin-bottom: 20px;
+  text-align: center; /* Center the heading */
+}
+
+.review-form label {
+  display: block;
+  margin-bottom: 8px; /* Increase label spacing */
+  font-weight: bold; /* Make labels bold */
+}
+
+.review-form input[type="text"],
+.review-form textarea,
+.review-form input[type="number"] {
+  width: 100%;
+  padding: 10px; /* Increase input padding */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px; /* Increase input spacing */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.review-form button {
+  padding: 12px 20px; /* Increase button padding */
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add a smooth transition */
+}
+
+.review-form button:hover {
+  background-color: #45a049;
+}
+
+.star-rating {
+  font-size: 24px;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+.star-rating .star {
+  cursor: pointer;
+}
+
+.star-rating .star.filled {
+  color: gold;
+}

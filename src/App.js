@@ -7,7 +7,7 @@ import LandingPage from "./components/LandingPage";
 import SignUpForm from "./components/SignUpForm";
 import LoginForm from "./components/LoginForm";
 import AppointmentBooking from "./components/AppointmentBooking";
-import Reviews from "./components/Reviews";
+import Reviews from "./components/ReviewForm/Reviews";
 import { AuthProvider } from "./AuthContext";
 import Notification from "./components/Notification/Notification";
 
