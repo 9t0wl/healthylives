@@ -1,11 +1,27 @@
 // src/components/Navbar.js
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import LogoutButton from "./LogoutButton";
 import { AuthContext } from "../AuthContext";
+import "./Navbar.css"; // Import Navbar.css
 
 function Navbar() {
-  const { isLoggedIn, handleLogout } = useContext(AuthContext); // Get handleLogout
+  const { isLoggedIn, handleLogout } = useContext(AuthContext);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [userName, setUserName] = useState("User"); // Default to "User" if no email
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      const email = sessionStorage.getItem("email");
+      if (email) {
+        setUserName(email);
+      }
+    }
+  }, [isLoggedIn]);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   return (
     <nav className="navbar">
@@ -26,7 +42,21 @@ function Navbar() {
       </ul>
       <div className="nav-buttons">
         {isLoggedIn ? (
-          <LogoutButton onLogout={handleLogout} /> // Pass handleLogout as prop
+          <div className="user-dropdown">
+            <button className="user-trigger" onClick={toggleDropdown}>
+              {userName}
+            </button>
+            {isDropdownOpen && (
+              <ul className="dropdown-menu">
+                <li>
+                  <Link to="/profile">Your Profile</Link>
+                </li>
+                <li>
+                  <button onClick={handleLogout}>Logout</button>
+                </li>
+              </ul>
+            )}
+          </div>
         ) : (
           <>
             <Link to="/signup" className="signup-btn">

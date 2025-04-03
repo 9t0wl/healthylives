@@ -10,6 +10,7 @@ import AppointmentBooking from "./components/AppointmentBooking";
 import Reviews from "./components/ReviewForm/Reviews";
 import { AuthProvider } from "./AuthContext";
 import Notification from "./components/Notification/Notification";
+import ProfileCard from "./components/ProfileCard/ProfileCard"; // Import ProfileCard
 
 function App() {
   const [appointment, setAppointment] = useState(null);
@@ -45,9 +46,11 @@ function App() {
                 }
               />
               <Route path="/reviews" element={<Reviews />} />
+              <Route path="/profile" element={<ProfileCard />} />
             </Routes>
           </Notification>
         </div>
+        {console.log("App.js Rendered")}
       </Router>
     </AuthProvider>
   );

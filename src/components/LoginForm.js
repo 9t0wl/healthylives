@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./LoginForm.css";
 import { AuthContext } from "../AuthContext";
 
-const API_URL = "http://localhost:8181";
+export const API_URL = "http://localhost:8181";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -34,6 +34,8 @@ function LoginForm() {
         sessionStorage.setItem("auth-token", json.authtoken);
         sessionStorage.setItem("name", json.name);
         sessionStorage.setItem("role", json.role);
+        sessionStorage.setItem("email", email); // Add this line!
+
         setLoading(false);
         navigate("/");
         handleLogin();
