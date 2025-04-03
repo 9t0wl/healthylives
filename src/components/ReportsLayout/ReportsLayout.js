@@ -8,15 +8,15 @@ const ReportsLayout = () => {
       serialNumber: 1,
       doctorName: "Dr. John Doe",
       doctorSpeciality: "Cardiology",
-      viewReport: "/report/1", // Replace with actual report URLs
-      downloadReport: "/download/1", // Replace with actual download URLs
+      viewReport: "/patient_report.pdf",
+      downloadReport: "/patient_report.pdf",
     },
     {
       serialNumber: 2,
       doctorName: "Dr. Jane Smith",
       doctorSpeciality: "Dermatology",
-      viewReport: "/report/2", // Replace with actual report URLs
-      downloadReport: "/download/2", // Replace with actual download URLs
+      viewReport: "/patient_report.pdf",
+      downloadReport: "/patient_report.pdf",
     },
     // Add more reports as needed
   ];
@@ -52,6 +52,8 @@ const ReportsLayout = () => {
                     borderRadius: "4px",
                     marginRight: "10px",
                   }}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   View Report
                 </a>
@@ -67,6 +69,7 @@ const ReportsLayout = () => {
                     textDecoration: "none",
                     borderRadius: "4px",
                   }}
+                  download="/patient_report.pdf"
                 >
                   Download Report
                 </a>
