@@ -11,6 +11,7 @@ import Reviews from "./components/ReviewForm/Reviews";
 import { AuthProvider } from "./AuthContext";
 import Notification from "./components/Notification/Notification";
 import ProfileCard from "./components/ProfileCard/ProfileCard"; // Import ProfileCard
+import ReportsLayout from "./components/ReportsLayout/ReportsLayout"; // Import ReportsLayout
 
 function App() {
   const [appointment, setAppointment] = useState(null);
@@ -46,6 +47,7 @@ function App() {
                 }
               />
               <Route path="/reviews" element={<Reviews />} />
+              <Route path="/reports" element={<ReportsLayout />} />
               <Route path="/profile" element={<ProfileCard />} />
             </Routes>
           </Notification>

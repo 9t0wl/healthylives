@@ -52,6 +52,9 @@ function Navbar() {
                   <Link to="/profile">Your Profile</Link>
                 </li>
                 <li>
+                  <Link to="/reports">Your Reports</Link>
+                </li>
+                <li>
                   <button onClick={handleLogout}>Logout</button>
                 </li>
               </ul>

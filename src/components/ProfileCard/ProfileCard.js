@@ -1,5 +1,5 @@
 // src/components/ProfileCard/ProfileCard.js
-import React, { useEffect, useState, useRef, memo } from "react";
+import React, { useEffect, useState, useRef, memo, useCallback } from "react";
 import { API_URL } from "../LoginForm";
 import { useNavigate } from "react-router-dom";
 import "./ProfileCard.css";
@@ -15,8 +15,8 @@ const ProfileCard = memo(() => {
   const [isProfileLoaded, setIsProfileLoaded] = useState(false);
   const isMounted = useRef(false);
 
-  const fetchUserProfile = async () => {
-    // No useCallback here
+  const fetchUserProfile = useCallback(async () => {
+    // useCallback added here
     try {
       const authtoken = sessionStorage.getItem("auth-token");
       const email = sessionStorage.getItem("email");
@@ -48,7 +48,7 @@ const ProfileCard = memo(() => {
     } catch (error) {
       console.error("Fetch Error:", error);
     }
-  };
+  }, [navigate]);
 
   useEffect(() => {
     if (isMounted.current) {
@@ -61,7 +61,7 @@ const ProfileCard = memo(() => {
     } else {
       isMounted.current = true;
     }
-  }, [navigate]);
+  }, [navigate, fetchUserProfile]);
 
   const handleEdit = () => {
     setEditMode(true);
