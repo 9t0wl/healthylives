@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && rm -rf stayhealthy-backend/build && mv build stayhealthy-backend/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
